@@ -1,0 +1,268 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --background: #F5F2EB;
+  --foreground: #101010;
+  --primary: #173D35;
+  --primary-foreground: #F5F2EB;
+  --secondary: #B8965E;
+  --secondary-foreground: #F5F2EB;
+  --accent: #B8965E;
+  --accent-foreground: #101010;
+  --muted: #EAE6DE;
+  --muted-foreground: #72777D;
+  --card: #FFFFFF;
+  --card-foreground: #101010;
+  --border: #D9D4C9;
+  --input: #EAE6DE;
+  --ring: #173D35;
+  --radius: 12px;
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Cormorant Garamond', serif;
+
+  --forest: #173D35;
+  --forest-light: #1F4A40;
+  --forest-dark: #0F2820;
+  --graphite: #101010;
+  --ivory: #F5F2EB;
+  --ivory-dark: #EAE6DE;
+  --ivory-mid: #EDE9E1;
+  --gold: #B8965E;
+  --gold-light: #C9A97A;
+  --steel: #72777D;
+  --steel-light: #9DA2A8;
+
+  --shadow-soft: 0 1px 8px rgba(16, 16, 16, 0.06);
+  --shadow-card: 0 2px 16px rgba(16, 16, 16, 0.07);
+  --shadow-elevated: 0 6px 32px rgba(16, 16, 16, 0.10);
+}
+
+.dark {
+  --background: #0D1A17;
+  --foreground: #F5F2EB;
+  --primary: #2A5A4E;
+  --primary-foreground: #F5F2EB;
+  --card: #111E1A;
+  --card-foreground: #F5F2EB;
+  --border: #1F3028;
+  --muted: #162420;
+  --muted-foreground: #72777D;
+  --input: #1A2E28;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+
+  .text-tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .tracking-widest-label {
+    letter-spacing: 0.12em;
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .bg-forest { background-color: var(--forest); }
+  .bg-forest-light { background-color: var(--forest-light); }
+  .bg-graphite { background-color: var(--graphite); }
+  .bg-ivory { background-color: var(--ivory); }
+  .bg-ivory-dark { background-color: var(--ivory-dark); }
+  .bg-ivory-mid { background-color: var(--ivory-mid); }
+  .bg-gold { background-color: var(--gold); }
+  .bg-steel { background-color: var(--steel); }
+
+  .text-forest { color: var(--forest); }
+  .text-graphite { color: var(--graphite); }
+  .text-ivory { color: var(--ivory); }
+  .text-gold { color: var(--gold); }
+  .text-steel { color: var(--steel); }
+
+  .border-forest { border-color: var(--forest); }
+  .border-gold { border-color: var(--gold); }
+  .border-steel { border-color: var(--steel); }
+  .border-ivory { border-color: var(--ivory); }
+
+  /* Ivory-first card system */
+  .genesis-card {
+    background-color: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .genesis-card-ivory {
+    background-color: var(--ivory);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+  }
+
+  /* Forest card for strategic use only */
+  .genesis-card-forest {
+    background-color: var(--forest);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 20px rgba(23, 61, 53, 0.25);
+  }
+
+  .risk-badge-high {
+    background-color: rgba(200, 60, 60, 0.10);
+    color: #C83C3C;
+    border: 1px solid rgba(200, 60, 60, 0.25);
+  }
+
+  .risk-badge-moderate {
+    background-color: rgba(184, 150, 94, 0.12);
+    color: var(--gold);
+    border: 1px solid rgba(184, 150, 94, 0.3);
+  }
+
+  .risk-badge-low {
+    background-color: rgba(23, 61, 53, 0.08);
+    color: var(--forest);
+    border: 1px solid rgba(23, 61, 53, 0.20);
+  }
+
+  .task-complete {
+    opacity: 0.6;
+    text-decoration: line-through;
+  }
+
+  .attendance-bar {
+    height: 6px;
+    border-radius: 3px;
+    background-color: var(--forest);
+  }
+
+  .attendance-bar-bg {
+    height: 6px;
+    border-radius: 3px;
+    background-color: var(--muted);
+  }
+
+  .step-active {
+    background-color: var(--forest);
+    color: var(--ivory);
+  }
+
+  .step-complete {
+    background-color: var(--gold);
+    color: var(--ivory);
+  }
+
+  .step-inactive {
+    background-color: var(--muted);
+    color: var(--steel);
+  }
+
+  .slider-forest::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--forest);
+    cursor: pointer;
+    border: 2px solid var(--ivory);
+    box-shadow: 0 2px 6px rgba(23, 61, 53, 0.3);
+  }
+
+  .slider-forest::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--forest);
+    cursor: pointer;
+    border: 2px solid var(--ivory);
+  }
+
+  .slider-forest {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--muted);
+    outline: none;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .pulse-gold {
+    animation: pulseGold 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseGold {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .mobile-container {
+    max-width: 390px;
+    margin: 0 auto;
+  }
+
+  /* Sidebar transition */
+  .sidebar-transition {
+    transition: width 0.2s ease;
+  }
+}
